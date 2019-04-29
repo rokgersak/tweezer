@@ -18,7 +18,7 @@ def four_corner_offsets(upper_left, upper_right, lower_left, lower_right):
 
     Returns
     -------
-    points : array of float
+    points : ndarray_like
         n-th row stores x-,y-coordinates of n-th trap and x-,y-offset of n-th particle
     """
 
@@ -45,13 +45,13 @@ def four_corner_calibration(trap_pos_x, trap_pos_y, p1, p2, p3, p4):
         x-coordinate of point for which offset is calculated
     trap_pos_y : str
         y-coordinate of point for which offset is calculated
-    p1 : array of float
+    p1 : array_like
         x-,y-coordinates of trap and x-,y-offset at upper left position
-    p2 : array of float
+    p2 : array_like
         x-,y-coordinates of trap and x-,y-offset at upper right position
-    p3 : array of float
+    p3 : array_like
         x-,y-coordinates of trap and x-,y-offset at lower left position
-    p4 : array of float
+    p4 : array_like
         x-,y-coordinates of trap and x-,y-offset at lower right position
 
     Returns
