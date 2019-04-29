@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import tweezer.calibration as cal
+import calibration as cal
 
 def read_file(path, no_of_particles):
     """Unpacks a dat file.
@@ -32,7 +32,7 @@ def read_file(path, no_of_particles):
     # Read file by lines
     for line in raw_data.readlines():
         # If data is missing (double tab), replace it with nan
-        line = line.replace('\t\t', '\tnan')
+        line = line.replace('\t\t', '\tnan\t')
         data[rows,:] = (line.split('\t'))[:columns]
         rows += 1
     data = data[:rows, :].astype(np.float)
