@@ -32,7 +32,7 @@ def read_file(path, no_of_particles):
     # Read file by lines
     for line in raw_data.readlines():
         # If data is missing (double tab), replace it with nan
-        line = line.replace('\t\t', '\tnan\t')
+        line = line.replace('\t\t', '\tnan')
         data[rows,:] = (line.split('\t'))[:columns]
         rows += 1
     data = data[:rows, :].astype(np.float)
