@@ -109,7 +109,7 @@ def drift(xdata, ydata):
     return xdata + sine(t, x_drift_parameters), ydata + sine(t, y_drift_parameters)
     
 
-def generate(k, temp=273, phi=0., center=(0., 0.), number_of_points=10**5):
+def generate(k, temp=273, phi=0., center=(0., 0.), number_of_points=10**5, drifting = True):
     """Generates positions.
 
     Draws positions with uncorrelated coordinates from
@@ -143,8 +143,10 @@ def generate(k, temp=273, phi=0., center=(0., 0.), number_of_points=10**5):
     """
     xdata, ydata = draw(k, temp, number_of_points)
     xdata, ydata = rotate_and_decenter(xdata, ydata, phi, center)
-    xdata, ydata = drift(xdata, ydata)
-    return xdata, ydata
+    if drifting == True:
+        xdata, ydata = drift(xdata, ydata)
+    data = np.stack((xdata, ydata), axis=1)
+    return data
 
 
 def generate_time(number_of_points=10**5, time_interval=1e-3, start_time=0):
@@ -173,6 +175,6 @@ def generate_time(number_of_points=10**5, time_interval=1e-3, start_time=0):
     TODO
 
     """
-    return start_time + np.arange(number_of_points)*time_interval
+    return np.array(start_time + np.arange(number_of_points)*time_interval)
     
     
