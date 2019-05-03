@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import tweezer.calibration as cal
+import calibration as cal
 
 
 def read_file(path, no_of_particles):
